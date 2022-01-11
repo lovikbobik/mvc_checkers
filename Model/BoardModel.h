@@ -1,21 +1,17 @@
 #pragma once
-#include "TileModel.h"
+
 #include <vector>
 #include "Figures/CheckerModel.h"
+#include "Figures/CheckerModel.cpp"
 #include "Figures/QueenModel.h"
-#include "Figures/PieceModel.h"
-
-using namespace std;
-
-class CheckerModel;
-class QueenModel;
-class PieceModel;
-class TileModel;
+#include "Figures/QueenModel.cpp"
+#include "../View/Figures/CheckerView.h"
+#include "../View/Figures/QueenView.h"
 
 
 class BoardModel {
 private:
-    mutable vector<vector<TileModel>> _tiles;
+    mutable std::vector<std::vector<TileModel>> _tiles;
     int _blackCounter;
     int _whiteCounter;
     int _playerTurn;
@@ -23,10 +19,6 @@ public:
     BoardModel();
 
     bool checkWinCondition() const;
-
-    int getWhiteCounter() const { return _whiteCounter; }
-
-    int getBlackCounter() const { return _blackCounter; }
 
     int decrementWhiteCounter() { return --_whiteCounter; }
 
@@ -38,6 +30,11 @@ public:
 
     void setPlayerTurn(int value) { _playerTurn = value; }
 
-    vector<vector<TileModel>> &getBoardTiles() { return _tiles; };
+    std::vector<std::vector<TileModel>> &getBoardTiles() { return _tiles; }
+
+    int getWhiteCounter() const { return _whiteCounter; }
+
+    int getBlackCounter() const { return _blackCounter; }
 
 };
+

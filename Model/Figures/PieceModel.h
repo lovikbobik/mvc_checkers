@@ -1,19 +1,16 @@
 #pragma once
 
-#include "../../MoveStatus/MoveStatus.h"
+#include<vector>
 #include "../TileModel.h"
+#include "../../MoveStatus/MoveStatus.h"
+#include "../../Observer/Observer.h"
 
-#include <iostream>
-#include <vector>
-
-
-class TileModel;
 
 enum Color {
     BLACK = 1, WHITE = -1
 };
 
-class PieceModel {
+class PieceModel : public Subject {
 private:
     int _x;
     int _y;
@@ -21,15 +18,11 @@ private:
 
 
 public:
-    PieceModel(int y, int x, Color c);
+    PieceModel(int y, int x, Color c) : _y(y), _x(x), _color(c) {};
 
     virtual ~PieceModel() = default;
 
-    virtual bool isQueen() const = 0;
-
-    void setColor(Color c) { this->_color = c; }
-
-    int getColor() const { return _color; }
+    int getColor() const override { return _color; }
 
     int getY() const { return _y; }
 
@@ -39,7 +32,7 @@ public:
 
     void setX(int x) { this->_x = x; }
 
-    virtual MoveStatus move(std::vector<std::vector<TileModel>>, int, int)=0;
+    virtual MoveStatus move(const std::vector<std::vector<TileModel>> &tiles, int newY, int newX) = 0;
 
 };
 

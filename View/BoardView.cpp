@@ -5,21 +5,16 @@ void BoardView::printBoard(BoardModel *board) {
         std::cout << y + 1 << " ";
         for (int x = 0; x < 8; x++) {
             if (board->getTile(y, x).hasPiece()) {
-                auto *p = board->getTile(y, x).getPiece();
-                if (p->isQueen()) {
-                    QueenView q;
-                    q.print(p);
-                } else {
-                    CheckerView c;
-                    c.print(p);
-                }
+                //При отрисовке доски, шашка (Subject) уведомляет наблюдателей Views (Observer)
+                auto *piece = board->getTile(y, x).getPiece();
+                piece->Notify();
 
             } else if (!board->getTile(y, x).hasPiece() && (x + y) % 2)
                 std::cout << ". ";
             else
                 std::cout << "  ";
         }
-        std::cout << endl;
+        std::cout << std::endl;
     }
     std::cout << "  ";
 
@@ -27,4 +22,3 @@ void BoardView::printBoard(BoardModel *board) {
         std::cout << row[x] << " ";
     }
 }
-

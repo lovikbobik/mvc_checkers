@@ -1,24 +1,21 @@
-#ifndef MVC_CHECKERS_QUEENMODEL_H
-#define MVC_CHECKERS_QUEENMODEL_H
-#include "PieceModel.h"
-#include<iostream>
-#include <vector>
-using namespace std;
+#pragma once
 
-class PieceModel;
+
+#include "PieceModel.h"
+
 
 class QueenModel : public PieceModel {
     using PieceModel::PieceModel;
 public:
     ~QueenModel() override = default;
 
-    bool isQueen() const override { return true; };
+    static PieceModel *
+    checkDiagonal(const std::vector<std::vector<TileModel>> &tiles, int oldY, int oldX, int newY, int newX);
 
-    MoveStatus move(vector<vector<TileModel>> tiles, int newY, int newX) override;
+    MoveStatus move(const std::vector<std::vector<TileModel>> &tiles, int newY, int newX) override;
 
-    static PieceModel *checkDiagonal(const vector<vector<TileModel>> &tiles, int oldY, int oldX, int newY, int newX);
 
 };
 
 
-#endif //MVC_CHECKERS_QUEENMODEL_H
+
