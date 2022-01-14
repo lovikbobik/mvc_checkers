@@ -43,12 +43,9 @@ void AsyncExitListener() {
         }
         std::this_thread::sleep_for(milliseconds(500));
     }
-
 }
 
-
 Buffer Input(Buffer &coords) {
-
     std::cin.ignore();
     std::cout << "Pick your piece (number, letter):" << std::endl;
     //_getch() - Считывание клавиши с клавиатуры
@@ -73,8 +70,7 @@ void Launch() {
     //пока клавиша не нажата
     while (!_kbhit()) {
         GetKeyPressed();
-        if (KEY[VK_RETURN]) {// Enter
-            std::cout << "Go!" << std::endl;
+        if (KEY[VK_RETURN]) {
             return;
         } else if (KEY[VK_ESCAPE]) {
             std::cout << "Bye!" << std::endl;
@@ -95,6 +91,7 @@ void Render(BoardModel *boardModel) {
 void Update(Buffer coords, BoardModel *boardModel) {
     BoardController::tryMove(coords.oldY, coords.oldX, coords.newY, coords.newX, boardModel);
 }
+
 
 
 

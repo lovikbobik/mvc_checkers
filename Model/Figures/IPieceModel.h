@@ -2,13 +2,14 @@
 
 #include<vector>
 #include "../TileModel.h"
-#include "../../MoveState/MoveState.h"
+#include "../../Model/MoveState/MoveState.h"
 #include "../../Observer/Observer.h"
 
 
 enum Color {
     BLACK = 1, WHITE = -1
 };
+
 
 class IPieceModel : public Subject {
 private:

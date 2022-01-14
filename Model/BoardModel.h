@@ -19,16 +19,14 @@ private:
     int _playerTurn;
 
 protected:
-    /*
-     * Конструктор Singleton должен быть скрытым, чтобы предотвратить
-     * создание объекта через оператор new.
-     */
+     // Конструктор Singleton должен быть скрытым, чтобы предотвратить
+     // создание объекта через оператор new.
     BoardModel();
 
     static BoardModel *_singleton;
 
 public:
-    BoardModel(BoardModel &other) = delete;//Singleton нельзя копировать
+    BoardModel(BoardModel &other) = delete; // Singleton нельзя копировать
 
     void operator=(const BoardModel &) = delete;
 

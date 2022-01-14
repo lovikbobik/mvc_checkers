@@ -5,13 +5,13 @@
 
 int main() {
 
+
     Launch();
 
     auto *board = BoardModel::getSingleton();
 
     std::thread async_exit(AsyncExitListener);
     async_exit.detach();
-
     using clock = std::chrono::steady_clock;
     const int FPS = 60;
 
