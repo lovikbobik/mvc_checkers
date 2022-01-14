@@ -3,28 +3,26 @@
 #include "Game/Game.h"
 #include "Game/Game.cpp"
 
-using namespace std;
-
 int main() {
 
     Launch();
 
-    auto *boardModel = BoardModel::GetSingleton();
-
-    auto frame = std::chrono::steady_clock::now();
-    const int FPS = 60;
+    auto *board = BoardModel::getSingleton();
 
     std::thread async_exit(AsyncExitListener);
     async_exit.detach();
 
-    while (!boardModel->checkWinCondition()) {
+    using clock = std::chrono::steady_clock;
+    const int FPS = 60;
 
-        Render(boardModel);
-        Position coords{};
+    while (!board->checkWinCondition()) {
+
+        Render(board);
+        Buffer coords{};
         Input(coords);
-        Update(coords, boardModel);
+        Update(coords, board);
 
-        frame += std::chrono::milliseconds(1000 / FPS); // = 16ms
+        auto frame = (clock::now() += milliseconds(1000 / FPS)); // = 16ms;
         std::this_thread::sleep_until(frame);
     }
 }
