@@ -1,14 +1,14 @@
 #pragma once
 
 #include <vector>
-#include "Figures/CheckerModel.h"
-#include "Figures/CheckerModel.cpp"
-#include "Figures/QueenModel.h"
-#include "Figures/QueenModel.cpp"
-#include "../View/Figures/CheckerView.h"
-#include "../View/Figures/QueenView.h"
-#include "../Factory/Factory.h"
-#include "../Factory/Factory.cpp"
+#include "../Figures/CheckerModel.h"
+#include "../Figures/CheckerModel.cpp"
+#include "../Figures/QueenModel.h"
+#include "../Figures/QueenModel.cpp"
+#include "../../View/Figures/CheckerView.h"
+#include "../../View/Figures/QueenView.h"
+#include "../../Factory/Factory.h"
+#include "../../Factory/Factory.cpp"
 
 
 class BoardModel {

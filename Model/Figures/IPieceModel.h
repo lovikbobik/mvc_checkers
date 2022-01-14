@@ -1,7 +1,7 @@
 #pragma once
 
 #include<vector>
-#include "../TileModel.h"
+#include "../TileModel/TileModel.h"
 #include "../../Model/MoveState/MoveState.h"
 #include "../../Observer/Observer.h"
 

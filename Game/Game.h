@@ -5,9 +5,9 @@
 #include <conio.h>
 #include <thread>
 #include <chrono>
-#include "../Model/BoardModel.h"
-#include "../View/BoardView.h"
-#include "../View/BoardView.cpp"
+#include "../Model/BoardModel/BoardModel.h"
+#include "../View/BoardView/BoardView.h"
+#include "../View/BoardView/BoardView.cpp"
 
 struct Buffer {
     char oldY, oldX, newY, newX;

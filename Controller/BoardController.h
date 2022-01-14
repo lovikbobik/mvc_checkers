@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Model/BoardModel.h"
-#include "../Model/BoardModel.cpp"
+#include "../Model/BoardModel/BoardModel.h"
+#include "../Model/BoardModel/BoardModel.cpp"
 #include "../Model/Figures/IPieceModel.h"
 #include "../Model/MoveState/MoveState.h"
 

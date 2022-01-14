@@ -1,10 +1,9 @@
 #include <iostream>
-#include "Model/BoardModel.h"
+#include "Model/BoardModel/BoardModel.h"
 #include "Game/Game.h"
 #include "Game/Game.cpp"
 
 int main() {
-
 
     Launch();
 
